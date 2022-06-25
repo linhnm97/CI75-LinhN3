@@ -1,14 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
-
 // import Demo from "./Components/Demo1/index";
-import Demo2 from "./Components/Demo2/index2"
+import CreatePerson from './Components/Demo2/CreatePerson';
+import ListPerson from './Components/Demo2/ListPerson';
+import {useState} from "react";
 
 function App() {
+  const [listPerson, setListPerson] = useState([{
+    name: "Hao",
+    age: 18
+  }, {
+    name: "Linh",
+    age: 18
+  }
+  ])
+
+  const addPerson = (person) => {
+    setListPerson ({...listPerson, person})
+  }
   return (
     <div className="App">
       {/* <Demo /> */}
-      <Demo2 />
+      <CreatePerson addPerson={addPerson}/>
+      <ListPerson listPerson={listPerson}/>
     </div>
   );
 }

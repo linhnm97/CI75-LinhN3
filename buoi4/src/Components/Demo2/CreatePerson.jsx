@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from "react";
 
-function Demo2() {
+function CreatePerson({addPerson}) {
   const [person, setPerson] = useState({
     name: "",
     age: 18
@@ -18,7 +18,7 @@ function Demo2() {
   }
 
   const handleClick = () => {
-    console.log(person)
+    addPerson(person)
   }
   return (
     <div style= {{margin : "50px"}}>
@@ -37,4 +37,4 @@ function Demo2() {
   )
 }
 
-export default Demo2
+export default CreatePerson
