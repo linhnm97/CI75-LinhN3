@@ -4,6 +4,8 @@ import './App.css';
 import CreatePerson from './Components/Demo2/CreatePerson';
 import ListPerson from './Components/Demo2/ListPerson';
 import {useState} from "react";
+import TrafficLight from './Components/Demo3/TrafficLight';
+
 
 function App() {
   const [listPerson, setListPerson] = useState([{
@@ -16,10 +18,11 @@ function App() {
   ])
 
   const addPerson = (person) => {
-    setListPerson ({...listPerson, person})
+    setListPerson ([...listPerson, person])
   }
   return (
     <div className="App">
+      {/* <TrafficLight /> */}
       {/* <Demo /> */}
       <CreatePerson addPerson={addPerson}/>
       <ListPerson listPerson={listPerson}/>

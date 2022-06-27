@@ -1,0 +1,21 @@
+.traffic {
+  border: 1px solid black;
+  border-radius: 50%;
+  width :20%;
+  height: 50px;
+}
+.total {
+  width: 100%;
+  /* display: flex; */
+  /* justify-content: flex-end; */
+}
+
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.yellow{
+  background-color: yellow;
+}
