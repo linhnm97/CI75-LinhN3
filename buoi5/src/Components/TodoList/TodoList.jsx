@@ -4,10 +4,12 @@ function TodoList() {
   const [job,setJob] = useState("");
   const [jobs, setJobs] = useState([
     {
+      id: 1,
       name: "Do homework",
       done: false
     },
     {
+      id: 2,
       name: "Do housework",
       done: false
     }
@@ -19,8 +21,9 @@ function TodoList() {
 
 
   const handleSubmit = () => {
-    setJobs( prev => [...prev, {name: job, done: false}])
+    setJobs( prev => [...prev, {id: new Date().getMilliseconds().toString(),name: job, done: false}])
     setJob("")  
+    console.log(jobs)
   }
 
   const handleDone = (index) => {
@@ -39,11 +42,17 @@ function TodoList() {
     setJobs(newJobs)
   }
 
-  const handleDelete = (index) => {
-    var newList = jobs;
-    newList.splice(index, 1);
-    setJobs([...newList]);
+  // const handleDelete = (index) => {
+  //   const newList = jobs;
+  //   newList.splice(index, 1);
+  //   setJobs([...newList]);
+  // }
+
+  const handleDelete = (id) => {
+    const newList = jobs.filter(item => item.id !== id);
+    setJobs(newList);
   }
+
   return (
     <div>
       <input value = {job} onChange= {(e) => handleChange(e)} type="text"></input>
@@ -53,7 +62,7 @@ function TodoList() {
         {
           jobs.map((value,index) => <li key = {index}>{`${value.name} ${value.done == true ? "-done": ""}`} 
             <button onClick= { () => handleDone(index)}>Done</button>
-            <button onClick = {() => handleDelete(index)}>Remove</button>
+            <button onClick = {() => handleDelete(value.id)}>Remove</button>
           </li>
           )
         }
