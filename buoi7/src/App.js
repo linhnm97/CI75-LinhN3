@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import MouseTop from './Components/MouseTop';
-import Content from './Components/Content';
+import TextCount from './Components/TextCount';
 
 function App() {
   return (
     <>
-    <MouseTop />
+    {/* <MouseTop /> */}
+    <TextCount />
     {/* <Content /> */}
     </>
   );

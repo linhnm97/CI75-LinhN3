@@ -5,8 +5,12 @@ function TextCount() {
   const[number, setNumber] = useState(0)
   
   useEffect (() => {
-       const newNum = word.split("").length
+      setTimeout(() => {
+        const newNum = word.trim().split(" ")[0] === "" ? 0 : word.trim().split(" ").length
        setNumber(newNum)
+      }, 500) 
+      
+      return () => {clearTimeout ()}
   }, [word])
 
 

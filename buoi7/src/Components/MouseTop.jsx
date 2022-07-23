@@ -11,6 +11,7 @@ function MouseTop() {
     }
 
     window.addEventListener('scroll', handleScroll);
+    return (() => window.removeEventListener("scroll"))
   })
 
   return (
